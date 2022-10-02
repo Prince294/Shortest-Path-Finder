@@ -1,38 +1,89 @@
-.App {
+.body {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.grid {
+  min-width: 100vw;
+  z-index: -1;
+  margin-top: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+button {
+  cursor: pointer;
+  background-color: cyan;
+  padding: 12px 30px;
+  border: 1px solid rgb(0, 141, 141);
+  border-radius: 4px;
+  position: relative;
+  font-size: 16px;
+  box-shadow: 0 2px 20px cyan;
+}
+button:hover {
+  box-shadow: 0 2px 16px 2px cyan;
+  padding: 12px 31px;
+}
+
+.cell {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  outline: 1px solid black;
+  margin: -0.4px 1.6px;
+}
+
+.source {
+  width: 28px;
+  height: 30px;
+  position: absolute;
+  transform: translate(-50%, 10%);
+  cursor: pointer;
+}
+
+.desti {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  transform: translate(-50%, -10%);
+  cursor: pointer;
+}
+
+.startNode {
+  text-align: center;
+}
+
+.endNode {
+  text-align: center;
+}
+
+.wall {
+  background-color: black;
+}
+
+.shortestPath {
+  animation: shortestPath 1.5s ease-out 0 alternate-reverse;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes shortestPath {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(6, 138, 147, 0.75);
+    border-radius: 100%;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  50% {
+    background-color: rgb(111, 255, 111);
   }
-  to {
-    transform: rotate(360deg);
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgb(104, 104, 255);
+  }
+
+  100% {
+    transform: scale(0.9);
+    background-color: cyan;
   }
 }
